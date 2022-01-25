@@ -9,14 +9,14 @@
         <el-form-item prop="username">
           <el-input v-model="loginForm.username">
             <template #prefix>
-              <el-icon class="iconfont icon-user"><search /></el-icon>
+              <el-icon class="iconfont icon-user"></el-icon>
             </template>
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
           <el-input v-model="loginForm.password" type="password">
             <template #prefix>
-              <el-icon class="iconfont icon-3702mima"><search /></el-icon>
+              <el-icon class="iconfont icon-3702mima"></el-icon>
             </template>
           </el-input>
         </el-form-item>
@@ -76,7 +76,7 @@ export default {
         // 登录成功后消息框提示，存储token，跳转到首页
         this.$message.success('登录成功')
         sessionStorage.setItem('token', res.data.token)
-        this.$router.push('/home')
+        this.$router.push('/')
       }
     },
     // 表单重置按钮事件处理

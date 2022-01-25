@@ -3,7 +3,26 @@ import {
   ElForm,
   ElFormItem,
   ElInput,
-  ElMessage
+  ElMessage,
+  ElContainer,
+  ElHeader,
+  ElAside,
+  ElMain,
+  ElMenu,
+  ElSubmenu,
+  ElMenuItem,
+  ElIcon,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElCard,
+  ElRow,
+  ElCol,
+  ElTable,
+  ElTableColumn,
+  ElSwitch,
+  ElPagination,
+  ElDialog,
+  ElMessageBox
 } from 'element-plus'
 
 export default (app) => {
@@ -12,4 +31,23 @@ export default (app) => {
   app.use(ElInput)
   app.use(ElFormItem)
   app.use(ElMessage)
+  app.use(ElContainer)
+  app.use(ElHeader)
+  app.use(ElAside)
+  app.use(ElMain)
+  app.use(ElMenu)
+  app.use(ElSubmenu)
+  app.use(ElMenuItem)
+  app.use(ElIcon)
+  app.use(ElBreadcrumb)
+  app.use(ElBreadcrumbItem)
+  app.use(ElCard)
+  app.use(ElRow)
+  app.use(ElCol)
+  app.use(ElTable)
+  app.use(ElTableColumn)
+  app.use(ElSwitch)
+  app.use(ElPagination)
+  app.use(ElDialog)
+  app.use(ElMessageBox)
 }

@@ -1,11 +1,34 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+// 登陆组件
 import Login from '../components/Login.vue'
-
+// 首页组件
+import Home from '../components/Home.vue'
+import Welcome from '../components/Welcome.vue'
+// 用户组件
+import Users from '../components/users/Users.vue'
 const routes = [
   {
     path: '/login',
     name: 'Login',
     component: Login
+  }, {
+    path: '/',
+    name: 'Home',
+    component: Home,
+    redirect: '/welcome',
+    // 子路由
+    children: [
+      {
+        path: '/welcome',
+        name: 'Welcome',
+        component: Welcome
+      },
+      {
+        path: 'users',
+        name: 'Users',
+        component: Users
+      }
+    ]
   }
   // {
   //   path: '/about',
@@ -27,7 +50,7 @@ router.beforeEach((to, from, next) => {
   const isLogin = sessionStorage.getItem('token')
   // 如果登录成功或要跳转到登录页面，允许继续跳转
   if (isLogin || to.path === '/login') {
-    next()
+    return next()
   }
   // 否则强制其跳转回登录页面
   next({ name: 'Login' })

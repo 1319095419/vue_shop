@@ -1,9 +1,6 @@
 <template>
-  <router-view></router-view>
+  <h3>Welcome</h3>
 </template>
-
-<script>
-</script>
 
 <style lang="less" scoped>
 </style>
