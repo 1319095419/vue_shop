@@ -15,6 +15,10 @@ import Add from '../components/shop/add.vue'
 import Edit from '../components/shop/edit.vue'
 import Params from '../components/shop/cateparams.vue'
 import Cate from '../components/shop/shopcate.vue'
+// 订单组件
+import Orders from '../components/orders/orders.vue'
+// 图表组件
+import Reports from '../components/reports/reports.vue'
 const routes = [
   {
     path: '/login',
@@ -63,6 +67,14 @@ const routes = [
         path: '/categories',
         name: 'Cate',
         component: Cate
+      }, {
+        path: '/orders',
+        name: 'Orders',
+        component: Orders
+      }, {
+        path: '/reports',
+        name: 'Reports',
+        component: Reports
       }
     ]
   }
