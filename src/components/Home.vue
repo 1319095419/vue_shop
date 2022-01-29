@@ -18,7 +18,7 @@
           text-color="#fff"
           :collapse="menuCollapse"
           :collapse-transition="false"
-          :unique-opened="false"
+          :unique-opened="true"
           router
           :default-active="menuIndex"
         >

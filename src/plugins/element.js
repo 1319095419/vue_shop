@@ -24,7 +24,16 @@ import {
   ElDialog,
   ElMessageBox,
   ElTag,
-  ElTree
+  ElTree,
+  ElAlert,
+  ElSteps,
+  ElStep,
+  ElTabs,
+  ElTabPane,
+  ElCascader,
+  ElCheckboxGroup,
+  ElCheckbox,
+  ElUpload
 } from 'element-plus'
 
 export default (app) => {
@@ -54,4 +63,13 @@ export default (app) => {
   app.use(ElMessageBox)
   app.use(ElTag)
   app.use(ElTree)
+  app.use(ElAlert)
+  app.use(ElSteps)
+  app.use(ElStep)
+  app.use(ElTabs)
+  app.use(ElTabPane)
+  app.use(ElCascader)
+  app.use(ElCheckboxGroup)
+  app.use(ElCheckbox)
+  app.use(ElUpload)
 }

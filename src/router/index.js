@@ -9,6 +9,12 @@ import Users from '../components/users/Users.vue'
 // 权限组件
 import Rights from '../components/power/rights.vue'
 import Roles from '../components/power/roles.vue'
+// 商品组件
+import Goods from '../components/shop/shoplist.vue'
+import Add from '../components/shop/add.vue'
+import Edit from '../components/shop/edit.vue'
+import Params from '../components/shop/cateparams.vue'
+import Cate from '../components/shop/shopcate.vue'
 const routes = [
   {
     path: '/login',
@@ -25,21 +31,38 @@ const routes = [
         path: '/welcome',
         name: 'Welcome',
         component: Welcome
-      },
-      {
+      }, {
         path: 'users',
         name: 'Users',
         component: Users
-      },
-      {
+      }, {
         path: '/rights',
         name: 'Right',
         component: Rights
-      },
-      {
+      }, {
         path: '/roles',
         name: 'Roles',
         component: Roles
+      }, {
+        path: '/goods',
+        name: 'Goods',
+        component: Goods
+      }, {
+        path: '/add',
+        name: 'Add',
+        component: Add
+      }, {
+        path: '/edit/:id',
+        name: 'Edit',
+        component: Edit
+      }, {
+        path: '/params',
+        name: 'Params',
+        component: Params
+      }, {
+        path: '/categories',
+        name: 'Cate',
+        component: Cate
       }
     ]
   }
@@ -60,6 +83,12 @@ const router = createRouter({
 
 // 添加路由守卫，只有登录成功才能跳转到其他页面
 router.beforeEach((to, from, next) => {
+  // 处理一下商品编辑页面路由跳转的bug
+  const result = to.path === '/edit/users' || to.path === '/edit/roles' || to.path === '/edit/rights' || to.path === '/edit/roles' || to.path === '/edit/goods' || to.path === '/edit/params' || to.path === '/edit/orders' || to.path === '/edit/categories' || to.path === '/edit/reports'
+  if (result) {
+    return next(to.path.substring(5))
+  }
+  // 判断用户登陆状态
   const isLogin = sessionStorage.getItem('token')
   // 如果登录成功或要跳转到登录页面，允许继续跳转
   if (isLogin || to.path === '/login') {
