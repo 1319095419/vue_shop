@@ -20,7 +20,7 @@
     <el-tabs v-model="activeTabName" @tab-click="handleTabClick">
       <!-- 根据是否选中分类来判断按钮是否可交互 -->
       <el-tab-pane label="动态参数" name="many">
-        <el-button type="primary" size="mini" :disabled="selectGoodsCate.length !== 3" @click="addBtnHandle">添加参数</el-button>
+        <el-button type="primary" size="mini" :disabled="selectGoodsCate.length < 1" @click="addBtnHandle">添加参数</el-button>
         <!-- 表格区域 -->
         <el-table :data="tableData" stripe border style="width: 100%">
           <el-table-column type="expand">
@@ -43,7 +43,7 @@
         </el-table>
       </el-tab-pane>
       <el-tab-pane label="静态属性" name="only">
-        <el-button type="primary" size="mini" :disabled="selectGoodsCate.length !== 3" @click="addBtnHandle">添加属性</el-button>
+        <el-button type="primary" size="mini" :disabled="selectGoodsCate.length < 1" @click="addBtnHandle">添加属性</el-button>
         <!-- 表格区域 -->
         <!-- 表格区域 -->
         <el-table :data="tableData" stripe border style="width: 100%">
@@ -262,6 +262,7 @@ export default {
       // 输入内容是否为空
       if (this.newTagValue.trim()) {
         this.param.attr_vals.push(this.newTagValue)
+        // 向服务器发送attr_val修改请求
         this.editAttrVal('添加')
       }
       this.newTagValue = ''

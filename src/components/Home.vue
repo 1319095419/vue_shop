@@ -61,7 +61,7 @@ export default {
   methods: {
     // 退出登录事件处理
     outlogHandle() {
-      // 清除token，消息提示，返回登陆页面
+      // 消息提示，清除token，返回登陆页面
       this.$message.success('退出登录成功')
       sessionStorage.clear()
       this.$router.push('/login')
@@ -77,7 +77,7 @@ export default {
       if (res.meta.status !== 200) return this.$message.error('获取菜单列表数据失败')
       this.menuList = res.data
     },
-    // 将点击的菜单项存入sessionStorage中
+    // 将点击的菜单项的唯一标识存入sessionStorage中，解决页面刷新后菜单项选中状态丢失的问题
     getIndexHandle(index) {
       this.menuIndex = index
       sessionStorage.setItem('menuIndex', index)

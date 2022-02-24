@@ -8,6 +8,6 @@ import './assets/global.css'
 import './assets/fonts/iconfont.css'
 
 const app = createApp(App)
-// 将elementui挂载到app实例中
+// 将elementui挂载到app实例中（部分引入）
 installElementPlus(app)
 app.use(router).mount('#app')

@@ -39,7 +39,7 @@
           </el-form-item>
         </el-tab-pane>
         <el-tab-pane label="商品属性" name="2">
-          <el-form-item label="商品名称" v-for="(item, index) in onlyParams" :key="item.attr_id">
+          <el-form-item :label="item.attr_name" v-for="(item, index) in onlyParams" :key="item.attr_id">
             <el-input v-model="onlyParams[index].attr_vals"></el-input>
           </el-form-item>
         </el-tab-pane>
